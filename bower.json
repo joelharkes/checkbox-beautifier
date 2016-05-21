@@ -1,0 +1,32 @@
+{
+  "name": "checkbox-beautifier",
+  "description": "A checkbox beautifier that does not kill your other libraries code.",
+  "main": "src/script.js",
+  "authors": [
+    "Joel Harkes"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "javascript",
+    "browser",
+    "checkbox",
+    "html",
+    "formelements",
+    "form",
+    "radio"
+  ],
+  "homepage": "https://github.com/joelharkes/checkbox-beautifier",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.4.1"
+  }
+}
