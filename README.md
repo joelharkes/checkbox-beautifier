@@ -47,4 +47,4 @@ Contributions are very welcome. You can fork and make a pull request. Please fir
 This library has no amibtions to become an all in one library with thousand functionalities. it's single functionality is to create an object oriented checkbox beautifier.
 You can extend the object as you please using [inheritance](https://developer.mozilla.org/en/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) or use the decorator pattern.
 
-There will be in the near future some sort of option structure to make extending this object a bit easier.
+There will be in the near future some sort of options/plugin structure to make extending this object a bit easier.
