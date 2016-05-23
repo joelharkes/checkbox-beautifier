@@ -1,9 +1,16 @@
 # checkbox-beautifier
 *A checkbox beautifier that does not kill your other libraries code.*
 
+Aren't you tired of after having to install a checkbox beautifier, that your whole code breaks? events are no longer fired. you set the input on checked but the beautifier doesn't pick it up?
+
+This plugin will change all that. It gives you a solid base to work from: you create your css (or take one of the themes already there) and this plugin takes care of making the code work like it this plugin wouldn't be there!
+
+A nice addition to all this is, that the plugin is object oriented. So you can just extend and overwrite it the way you want!
+
 ## Goal
 
 The goal is to deliver:
+
 1. a small and lightweight
 2. and through object oriented programming extensive library
 3. that makes it easily for you to beautify your checkboxes (and radio buttons in the future)
