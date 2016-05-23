@@ -11,45 +11,33 @@ var CheckboxBeauty = function (checkElement) {
     var input = checkElement;
     var self = this;
 
-    this.options = {
-        class: "checkbox",
-        checkedClass: "checked",
-        afterImpersonate: function (inputEl) {
-            //inputEl.className += "hidden";
-            inputEl.style += ";display:none;";
-        }
-    }
     // chache if its checked, needed?
     this.checked = self.input.checked;
 
     //Track property changes on checked attribute of input element
-    self.input._checked = self.input.checked;
     Object.defineProperty(self.input, 'checked', {
         configurable: true, // defaults to false
         get: function () {
             return self.checked;
         },
         set: function (checked) {
-            if(self.checked != checked){
+            if (self.checked != checked) {
                 //execute a click event for now? but this should not propegate.
                 //in the future it should not trigger a click event but actually set checked witouth triggering any event
-                self.input.dispatchEvent(new MouseEvent("click",{'bubbles': false}));
+                self.input.dispatchEvent(new MouseEvent("click", { 'bubbles': false }));
                 //self.checked = checked;
             }
         }
     });
 
-    var impersonator = document.createElement("div");
+    var impersonator = this.createImpersonator();
     this.impersonator = impersonator;
 
-    impersonator.className = "checkbox"
-    impersonator.tabIndex = 0; //Make him tab-able
     if (self.checked)
-        impersonator.className += " checked";
-    self.input.parentNode.insertBefore(impersonator, input.nextSibling)
-    impersonator.innerText = "x";
-    this.options.afterImpersonate(self.input);
+        this.check(); //So we only have one place to do check code.
 
+    self.input.parentNode.insertBefore(impersonator, input.nextSibling);
+    this.hideInput();
 
     /**
      * The handler for click event on the impersonator
@@ -118,23 +106,36 @@ CheckboxBeauty.prototype.removeListeners = function () {
     this.input.removeEventListener("change", this.inputChange);
     this.input.removeEventListener("input", this.inputInput);
 };
-CheckboxBeauty.prototype.destroy = function () {
-    this.removeListeners();
-    this.impersonator.remove();
-    delete this.input.checked; //delete getter;setter;
-    this.input.style.display = "block";
-}
+
 
 CheckboxBeauty.prototype.check = function () {
     if (!this.checked) {
         this.impersonator.className += ' checked'
-
     }
 }
 CheckboxBeauty.prototype.uncheck = function () {
     if (this.checked) {
-        
         impersonator.className = 'checkbox'
         this.checked = false;
     }
+}
+CheckboxBeauty.prototype.createImpersonator = function () {
+    var impersonator = document.createElement("div");
+    impersonator.tabIndex = 0; //Make him tab-able
+    impersonator.className = "checkbox" //add a class to css this thing
+    impersonator.innerText = "x";
+
+    return impersonator
+}
+CheckboxBeauty.prototype.hideInput = function () {
+    this.input.style.display = "none";
+}
+CheckboxBeauty.prototype.unhideInput = function () {
+    this.input.style.display = "block";
+}
+CheckboxBeauty.prototype.destroy = function () {
+    this.removeListeners();
+    this.impersonator.remove();
+    delete this.input.checked; //delete getter;setter;
+    this.unhideInput();
 }
