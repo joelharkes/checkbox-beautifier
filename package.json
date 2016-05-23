@@ -6,11 +6,10 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "eslint": "^2.10.2",
     "phantomjs": "^2.1.7"
-    
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
