@@ -302,7 +302,7 @@ describe('a default checkbox in the page', function () {
 });
 
 
-describe('a checkbox and a beautified checkbox with all event listeners', function () {
+describe('a checkbox and a beautified checkbox', function () {
   var self = this;
   var selfQ = this;
   beforeEach(function () {
@@ -323,10 +323,10 @@ describe('a checkbox and a beautified checkbox with all event listeners', functi
 
     this.beauty = new CheckboxBeauty(this.beautyCheck);
 
-    this.normalData = {
-    };
-    this.beautyData = {
-    };
+    this.normalData = {};
+    this.beautyData = {};
+    this.normalInput = {};
+    this.beautyInput = {};
 
     checkboxEevents.forEach(function (eventName) {
       self.normalContainer.addEventListener(eventName, function (event) {
@@ -337,6 +337,15 @@ describe('a checkbox and a beautified checkbox with all event listeners', functi
         self.beautyData[eventName + 'Count'] = (self.beautyData[eventName + 'Count'] || 0) + 1;
         self.beautyData[eventName + 'Event'] = event;
       });
+      self.normalCheckbox.addEventListener(eventName, function (event) {
+        self.normalInput[eventName + 'Count'] = (self.normalInput[eventName + 'Count'] || 0) + 1;
+        self.normalInput[eventName + 'Event'] = event;
+      });
+      self.beautyCheck.addEventListener(eventName, function (event) {
+        self.beautyInput[eventName + 'Count'] = (self.beautyInput[eventName + 'Count'] || 0) + 1;
+        self.beautyInput[eventName + 'Event'] = event;
+      });
+      
     });
   });
 
@@ -352,10 +361,13 @@ describe('a checkbox and a beautified checkbox with all event listeners', functi
 
   var testAllData = function () {
     checkboxEevents.forEach(function (name) {
-      it('should have equal amount of ' + name + ' events', function () {
+      it('should have equal amount of ' + name + ' events on input', function () {
+        expect(self.beautyInput[name + 'Count']).toBe(self.normalInput[name + 'Count']);
+      });
+      it('should have equal amount of ' + name + ' events on container', function () {
         expect(self.beautyData[name + 'Count']).toBe(self.normalData[name + 'Count']);
       });
-      it('should have on'+name+' targeted input element or be undefined like normal', function () {
+      it('should have on'+name+' targeted input element or be undefined like normal on container', function () {
         if (typeof self.beautyData[name + 'Event'] === 'undefined')
           expect(self.beautyData[name + 'Event']).toBe(self.normalData[name + 'Event'])
         else
@@ -386,7 +398,9 @@ describe('a checkbox and a beautified checkbox with all event listeners', functi
   describe('when focus called',function () {
     beforeEach(function () {
       self.normalCheckbox.focus();
+      self.normalCheckbox.blur(); //call blur because otherwise browser would call it for us on next focus
       self.beautyCheck.focus();
+      self.beautyCheck.blur();
     });
     testAllData();
     
@@ -395,7 +409,10 @@ describe('a checkbox and a beautified checkbox with all event listeners', functi
   describe('when focus called on beauty',function () {
     beforeEach(function () {
       self.normalCheckbox.focus();
+      self.normalCheckbox.blur();  //call blur because otherwise browser would call it for us on next focus
       self.beauty.impersonator.focus();
+      self.beauty.impersonator.blur();
+      
     });
     testAllData();
   });
