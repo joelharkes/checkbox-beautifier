@@ -87,22 +87,22 @@ var CheckboxBeauty = function (checkElement) {
     
     this.impersonatorFocus = function(ev){
         ev.stopPropagation();
-        
         if(!ev.pluginMade){
-            self.input.dispatchEvent(self.makeEvent('focus'));
+            self.input.dispatchEvent(self.makeEvent('focus', true));
         }
         
     }
     this.inputFocus = function (event) {
-        self.impersonator.focus();
+        if(!event.pluginMade)
+            self.impersonator.focus();
         //self.impersonator.dispatchEvent(self.makeEvent('focus'))
     }
 
     this.addListeners();
 }
 
-CheckboxBeauty.prototype.makeEvent = function (name) {
-    var ev = new Event(name);
+CheckboxBeauty.prototype.makeEvent = function (name, bubbles) {
+    var ev = new Event(name, { bubbles : bubbles === true});
     ev.pluginMade = true;
     return ev;
 };
