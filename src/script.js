@@ -24,8 +24,8 @@ var CheckboxBeauty = function (checkElement) {
             if (self.checked != checked) {
                 //execute a click event for now? but this should not propegate.
                 //in the future it should not trigger a click event but actually set checked witouth triggering any event
-                self.input.dispatchEvent(new MouseEvent("click", { 'bubbles': false }));
-                //self.checked = checked;
+                self.checked = checked;
+                //self.input.dispatchEvent(new MouseEvent("click", { 'bubbles': false }));
             }
         }
     });
@@ -85,17 +85,19 @@ var CheckboxBeauty = function (checkElement) {
         console.log("input", input.checked);
     }
     
+    
     this.impersonatorFocus = function(ev){
-        ev.stopPropagation();
+        //no stopPropagation since event does not bubble
+        //ev.stopPropagation();
         if(!ev.pluginMade){
-            self.input.dispatchEvent(self.makeEvent('focus', true));
+            self.input.dispatchEvent(self.makeEvent('focus', false));
         }
         
     }
-    this.inputFocus = function (event) {
-        if(!event.pluginMade)
-            self.impersonator.focus();
-        //self.impersonator.dispatchEvent(self.makeEvent('focus'))
+    
+    //programatically hide focus of input element: wont work when this method was already extracted
+    this.input.focus = function () {
+        self.impersonator.focus();
     }
 
     this.addListeners();
@@ -112,7 +114,7 @@ CheckboxBeauty.prototype.addListeners = function () {
     this.impersonator.addEventListener("keydown", this.impersonatorKeydown);
     this.impersonator.addEventListener("focus", this.impersonatorFocus);
     this.input.addEventListener("click", this.inputClick);
-    this.input.addEventListener("change", this.inputChange);
+    //this.input.addEventListener("change", this.inputChange);
     this.input.addEventListener("input", this.inputInput);
     this.input.addEventListener("focus", this.inputFocus);
     
@@ -122,7 +124,7 @@ CheckboxBeauty.prototype.removeListeners = function () {
     this.impersonator.removeEventListener("keydown", this.impersonatorKeydown);
     this.impersonator.removeEventListener("focus", this.impersonatorFocus);
     this.input.removeEventListener("click", this.inputClick);
-    this.input.removeEventListener("change", this.inputChange);
+    //this.input.removeEventListener("change", this.inputChange);
     this.input.removeEventListener("input", this.inputInput);
     this.input.removeEventListener("focus", this.inputFocus);
 };
