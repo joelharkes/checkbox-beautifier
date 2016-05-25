@@ -176,6 +176,68 @@ describe('a default checkbox in the page', function () {
         expect(document.contains(beauty.impersonator)).not.toBe(true);
       })
     });
+    
+    
+    describe('when user clicks on impersonator',function () {
+      var lastFocus = null;
+      var focusCount = 0;
+      var focusListener = function (ev) {
+        lastFocus = ev;
+        focusCount++;
+      }
+      beforeEach(function () {
+        checkbox.parentElement.addEventListener('focus',focusListener);
+        beauty.impersonator.focus();
+      });
+      afterEach(function () {
+        checkbox.parentElement.removeEventListener('focus',focusListener);
+        beauty.impersonator.blur();
+        focusCount = 0;
+        lastFocus = null;
+      });
+      it('should only have fired focus once', function () {
+        expect(focusCount).toBe(1);
+      });
+      
+      it('should have focus target as input element',function () {
+        expect(lastFocus.target).toBe(checkbox);
+      });
+      
+      it('beautifier should be focused element',function () {
+        expect(document.activeElement).toBe(beauty.impersonator);
+      })
+    });
+    
+    describe('when focus is set scriptwise to input',function(){
+      var lastFocus = null;
+      var focusCount = 0;
+      var focusListener = function (ev) {
+        lastFocus = ev;
+        focusCount++;
+      }
+      beforeEach(function () {
+        checkbox.parentElement.addEventListener('focus',focusListener);
+        checkbox.focus();
+      });
+      afterEach(function () {
+        checkbox.parentElement.removeEventListener('focus',focusListener);
+        
+        checkbox.blur();
+        focusCount = 0;
+        lastFocus = null;
+      });
+      it('should only have fired focus once', function () {
+        expect(focusCount).toBe(1);
+      });
+      
+      it('should have focus target as input element',function () {
+        expect(lastFocus.target).toBe(checkbox);
+      });
+      
+      it('beautifier should be focused element',function () {
+        expect(document.activeElement).toBe(beauty.impersonator);
+      })
+    })
   });
 
   describe('clicked on (make it checked)', function () {

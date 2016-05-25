@@ -68,6 +68,8 @@ var CheckboxBeauty = function (checkElement) {
             impersonator.dispatchEvent(new Event("click")); //Make it look like an original event
         }
     }
+    
+    
     this.inputClick = function (ev) {
         //console.log("click", ev);
         if (!ev.pluginMade) {
@@ -82,6 +84,19 @@ var CheckboxBeauty = function (checkElement) {
     var inputInput = function (ev) {
         console.log("input", input.checked);
     }
+    
+    this.impersonatorFocus = function(ev){
+        ev.stopPropagation();
+        
+        if(!ev.pluginMade){
+            self.input.dispatchEvent(self.makeEvent('focus'));
+        }
+        
+    }
+    this.inputFocus = function (event) {
+        self.impersonator.focus();
+        //self.impersonator.dispatchEvent(self.makeEvent('focus'))
+    }
 
     this.addListeners();
 }
@@ -95,16 +110,21 @@ CheckboxBeauty.prototype.makeEvent = function (name) {
 CheckboxBeauty.prototype.addListeners = function () {
     this.impersonator.addEventListener("click", this.impersonatorClick);
     this.impersonator.addEventListener("keydown", this.impersonatorKeydown);
+    this.impersonator.addEventListener("focus", this.impersonatorFocus);
     this.input.addEventListener("click", this.inputClick);
     this.input.addEventListener("change", this.inputChange);
     this.input.addEventListener("input", this.inputInput);
+    this.input.addEventListener("focus", this.inputFocus);
+    
 };
 CheckboxBeauty.prototype.removeListeners = function () {
     this.impersonator.removeEventListener("click", this.impersonatorClick);
     this.impersonator.removeEventListener("keydown", this.impersonatorKeydown);
+    this.impersonator.removeEventListener("focus", this.impersonatorFocus);
     this.input.removeEventListener("click", this.inputClick);
     this.input.removeEventListener("change", this.inputChange);
     this.input.removeEventListener("input", this.inputInput);
+    this.input.removeEventListener("focus", this.inputFocus);
 };
 
 
