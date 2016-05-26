@@ -9,6 +9,8 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^2.10.2",
+    "gulp": "^3.9.1",
+    "gulp-minify": "0.0.11",
     "phantomjs": "^2.1.7"
   },
   "scripts": {
