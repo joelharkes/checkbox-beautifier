@@ -2,7 +2,7 @@
   "name": "checkbox-beautifier",
   "version": "1.0.0",
   "description": "A checkbox beautifier that does not kill your other libraries code.",
-  "main": "src/script.js",
+  "main": "main.js",
   "directories": {
     "test": "test"
   },
@@ -14,7 +14,9 @@
     "phantomjs": "^2.1.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",

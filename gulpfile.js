@@ -17,3 +17,5 @@ gulp.task('default', function () {
         //.pipe(rename({suffix : '.min'}))
         .pipe(gulp.dest('dist'));
 });
+
+module.exports = gulp;
