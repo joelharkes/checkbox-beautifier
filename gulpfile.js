@@ -6,6 +6,9 @@ var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 gulp.task('default', function () {
     // place code for your default task here
     return gulp.src('src/*.less')
+        .pipe(less({
+            plugins: [autoprefix]
+        }))
         .pipe(gulp.dest('dist'));
 });
 
