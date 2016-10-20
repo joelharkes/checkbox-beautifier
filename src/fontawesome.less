@@ -1,0 +1,43 @@
+
+input[type="checkbox"].beautified, input[type="radio"].beautified  {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+
+    + i {
+        color: white;
+    }
+
+    + i:before {
+        border-style: solid;
+        border-width: 2px;
+        border-color: #337ab7;
+        font: normal normal normal 15px/1 FontAwesome;
+        content: '\f00c';
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        margin-right: 5px;
+        padding: 2px;
+    }
+
+    &:checked + i:before {
+        background-color: #337ab7;
+    }
+
+    &:focus + i:before {
+        outline: 1px dotted #aaa;
+    }
+
+    &:disabled + i {
+        color: #999;
+    }
+
+    &:not(:disabled) + i:hover:before {
+        color: #999;
+    }
+}
+
+input[type="radio"].beautified  + i:before {
+    border-radius: 100%;
+    }
