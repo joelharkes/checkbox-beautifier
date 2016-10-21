@@ -10,6 +10,11 @@ gulp.task('default', function () {
             plugins: [autoprefix]
         }))
         .pipe(gulp.dest('dist'));
+
 });
+gulp.task('watch', function () {
+      gulp.watch('src/*.less', ['default']);
+});
+
 
 module.exports = gulp;

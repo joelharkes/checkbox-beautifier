@@ -1,0 +1,46 @@
+input[type="checkbox"].beautified,
+input[type="radio"].beautified {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+input[type="checkbox"].beautified + i,
+input[type="radio"].beautified + i {
+  color: white;
+}
+input[type="checkbox"].beautified + i:before,
+input[type="radio"].beautified + i:before {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #337ab7;
+  font: normal normal normal 22px/1 FontAwesome;
+  content: '\f00c';
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  padding: 2px;
+}
+input[type="checkbox"].beautified + i:before:hover,
+input[type="radio"].beautified + i:before:hover {
+  color: #4f93ce;
+}
+input[type="checkbox"].beautified:checked + i:before,
+input[type="radio"].beautified:checked + i:before {
+  background-color: #337ab7;
+}
+input[type="checkbox"].beautified:focus + i:before,
+input[type="radio"].beautified:focus + i:before {
+  outline: 1px dotted #aaa;
+}
+input[type="checkbox"].beautified:disabled + i:before,
+input[type="radio"].beautified:disabled + i:before {
+  background: #aaa;
+}
+input[type="checkbox"].beautified:not(:disabled) + i:hover:before,
+input[type="radio"].beautified:not(:disabled) + i:hover:before {
+  color: white;
+}
+input[type="radio"].beautified + i:before {
+  border-radius: 100%;
+}
