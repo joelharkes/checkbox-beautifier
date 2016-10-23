@@ -1,3 +1,7 @@
+label {
+  margin: 2px;
+  display: inline-block;
+}
 input[type="checkbox"].beautified,
 input[type="radio"].beautified {
   position: absolute;
@@ -19,7 +23,7 @@ input[type="radio"].beautified + i:before {
 }
 input[type="checkbox"].beautified + i:before:hover,
 input[type="radio"].beautified + i:before:hover {
-  color: #4f93ce;
+  color: #c7ddef;
 }
 input[type="checkbox"].beautified + i:before,
 input[type="radio"].beautified + i:before {
@@ -42,7 +46,7 @@ input[type="radio"].beautified:disabled + i:before {
   background: #aaa;
 }
 label:hover > input.beautified:not(:disabled) + i:before {
-  background: #ccc;
+  background: #c7ddef;
 }
 input[type="radio"].beautified + i:before {
   border-radius: 100%;

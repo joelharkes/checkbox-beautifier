@@ -1,11 +1,16 @@
 @size: 22px;
 @color: #337ab7;
-@hoverColor: lighten(@color, 10%);
+@hoverColor: lighten(@color, 40%);
 @disabledColor: #aaa;
 
 //Color of the icon and of the box
 @iconColor: white;
 @innerColor: transparent;
+
+label {
+    margin: 2px;
+    display: inline-block;
+}
 
 input[type="checkbox"].beautified, input[type="radio"].beautified  {
     position: absolute;
@@ -57,7 +62,7 @@ input[type="checkbox"].beautified, input[type="radio"].beautified  {
 
 //On hover effect over buttons
 label:hover> input.beautified:not(:disabled) + i:before {
-    background:#ccc;
+    background: @hoverColor;
 }
 //make the radio buttons round.
 input[type="radio"].beautified  + i:before {

@@ -94,3 +94,8 @@ To test your changes, some demos might use nodejs to compile less code. to run t
 4. either: run `gulp` command to build, or run `gulp watch` ones to build on change.
 
 I'll do my best to maintain this repo properly.
+
+Sincerely,
+Joel Harkes
+
+note: compiled css is currently checked in to make the demo's work.
