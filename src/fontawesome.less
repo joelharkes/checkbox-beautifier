@@ -12,9 +12,6 @@ input[type="checkbox"].beautified, input[type="radio"].beautified  {
     opacity: 0;
     z-index: -1;
 
-    + i {
-        color: @iconColor;
-    }
 
     + i:before {
         border-style: solid;
@@ -33,6 +30,13 @@ input[type="checkbox"].beautified, input[type="radio"].beautified  {
         }
     }
 
+    
+    + i:before {
+        color: transparent;
+    }
+    &:checked + i:before {
+        color: @iconColor;
+    }
     &:checked + i:before {
         background-color: @color;
     }
@@ -48,11 +52,13 @@ input[type="checkbox"].beautified, input[type="radio"].beautified  {
         background:@disabledColor;
     }
 
-    &:not(:disabled) + i:hover:before {
-        color: @iconColor;
-    }
+  
 }
 
+//On hover effect over buttons
+label:hover> input.beautified:not(:disabled) + i:before {
+    background:#ccc;
+}
 //make the radio buttons round.
 input[type="radio"].beautified  + i:before {
     border-radius: 100%;

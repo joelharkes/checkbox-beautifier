@@ -4,10 +4,6 @@ input[type="radio"].beautified {
   opacity: 0;
   z-index: -1;
 }
-input[type="checkbox"].beautified + i,
-input[type="radio"].beautified + i {
-  color: white;
-}
 input[type="checkbox"].beautified + i:before,
 input[type="radio"].beautified + i:before {
   border-style: solid;
@@ -25,6 +21,14 @@ input[type="checkbox"].beautified + i:before:hover,
 input[type="radio"].beautified + i:before:hover {
   color: #4f93ce;
 }
+input[type="checkbox"].beautified + i:before,
+input[type="radio"].beautified + i:before {
+  color: transparent;
+}
+input[type="checkbox"].beautified:checked + i:before,
+input[type="radio"].beautified:checked + i:before {
+  color: white;
+}
 input[type="checkbox"].beautified:checked + i:before,
 input[type="radio"].beautified:checked + i:before {
   background-color: #337ab7;
@@ -37,9 +41,8 @@ input[type="checkbox"].beautified:disabled + i:before,
 input[type="radio"].beautified:disabled + i:before {
   background: #aaa;
 }
-input[type="checkbox"].beautified:not(:disabled) + i:hover:before,
-input[type="radio"].beautified:not(:disabled) + i:hover:before {
-  color: white;
+label:hover > input.beautified:not(:disabled) + i:before {
+  background: #ccc;
 }
 input[type="radio"].beautified + i:before {
   border-radius: 100%;

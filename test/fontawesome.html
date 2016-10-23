@@ -6,41 +6,45 @@
 </head>
 
 <body>
+    <h1>font-awesome Demo</h1>
+    <p>In this demo elements are only styled if they have the beautified class on the input element</p>
 	<form action="">
+        <h2>Checkboxes</h2>
 		<div>
 			<label for="no1">
                 <input type="checkbox" id="no1" class="beautified"></input>
-                <i></i>My labels text
+                <i></i>Normal checkbox
             </label>
 		</div>
         <div>
 			<label for="no2">
                 <input type="checkbox" id="no2" class="beautified" checked="checked"></input>
-                <i></i>My labels text
+                <i></i>Checked checkbox
             </label>
 		</div>
-		<div>
-			<label for="no3">
-                <input type="radio" id="no3" class="beautified" name="group1" checked="checked"></input>
-                <i></i>My labels text
-            </label>
-		</div>
+	<h2>Radio buttons</h2>
         <div>
 			<label for="no4">
                 <input type="radio" id="no4" class="beautified" name="group1"></input>
-                <i></i>My Checked
+                <i></i>Naromal radio
+            </label>
+		</div>
+        	<div>
+			<label for="no3">
+                <input type="radio" id="no3" class="beautified" name="group1" checked="checked"></input>
+                <i></i>checked radio
             </label>
 		</div>
         <div>
 			<label for="no5">
                 <input type="radio" id="no5" class="beautified" name="group1" disabled></input>
-                <i></i>My Disabled
+                <i></i>Disabled radio
             </label>
 		</div>
         <div>
 			<label for="no6">
-                <input type="radio" id="no6" class="beautified" name="group1"></checkbox>
-                <i></i>My labels text
+                <input type="radio" id="no6" class="beautified" name="group2" value="1" disabled checked></checkbox>
+                <i></i>Disabled checked
             </label>
 		</div>
 	</form>

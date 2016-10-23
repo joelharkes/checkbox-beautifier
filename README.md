@@ -86,4 +86,11 @@ You can Contribute by adding issues, or fixing the issues yourself. This is done
 4. push the changes to your fork.
 5. On the github website create a pull request from your fork.
 
+To test your changes, some demos might use nodejs to compile less code. to run this:
+
+1. install Node js
+2. install the necesarry packages: run `npm install` command in this directory
+3. install gulp globally: `npm install -g gulp-cli`
+4. either: run `gulp` command to build, or run `gulp watch` ones to build on change.
+
 I'll do my best to maintain this repo properly.
