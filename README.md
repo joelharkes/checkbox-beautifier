@@ -73,7 +73,7 @@ which checkbox need to be beautified and which not.
 
 ## List of examples
 
-* [fontawesome icons + less styling](https://github.com/joelharkes/checkbox-beautifier/blob/master/src/fontawesome.less)
+* fontawesome icons + less styling: [demo](http://htmlpreview.github.io/?https://github.com/joelharkes/checkbox-beautifier/blob/master/test/fontawesome.html) - [source](https://github.com/joelharkes/checkbox-beautifier/blob/master/src/fontawesome.less)
 
 
 ## Contribute
