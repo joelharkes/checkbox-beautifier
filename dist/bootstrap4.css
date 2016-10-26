@@ -1,0 +1,55 @@
+label {
+  margin: 2px;
+  display: inline-block;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+input[type="checkbox"] + span:before,
+input[type="radio"] + span:before {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #337ab7;
+  content: 'v';
+  font-size: 22px;
+  line-height: 10px;
+  font-weight: 800;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  padding: 2px;
+}
+input[type="checkbox"] + span:before:hover,
+input[type="radio"] + span:before:hover {
+  color: #c7ddef;
+}
+input[type="checkbox"] + span:before,
+input[type="radio"] + span:before {
+  color: transparent;
+}
+input[type="checkbox"]:checked + span:before,
+input[type="radio"]:checked + span:before {
+  color: white;
+}
+input[type="checkbox"]:checked + span:before,
+input[type="radio"]:checked + span:before {
+  background-color: #337ab7;
+}
+input[type="checkbox"]:focus + span:before,
+input[type="radio"]:focus + span:before {
+  outline: 1px dotted #aaa;
+}
+input[type="checkbox"]:disabled + span:before,
+input[type="radio"]:disabled + span:before {
+  background: #aaa;
+}
+label:hover > input:not(:disabled) + span:before {
+  background: #c7ddef;
+}
+input[type="radio"] + span:before {
+  border-radius: 100%;
+}

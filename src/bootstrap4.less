@@ -1,0 +1,70 @@
+@size: 22px;
+@color: #337ab7;
+@hoverColor: lighten(@color, 40%);
+@disabledColor: #aaa;
+
+//Color of the icon and of the box
+@iconColor: white;
+@innerColor: transparent;
+
+label {
+    margin: 2px;
+    display: inline-block;
+}
+
+input[type="checkbox"], input[type="radio"]  {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+
+
+    + span:before {
+        border-style: solid;
+        border-width: 2px;
+        border-color: @color;
+        //font: normal normal normal @size/1 FontAwesome;
+        content: 'v';
+        font-size: @size;
+        line-height: 10px;
+        font-weight: 800;
+        display: inline-block;
+        width: @size;
+        height: @size;
+        margin-right: 5px;
+        padding: 2px;
+        
+        &:hover {
+            color: @hoverColor;
+        }
+    }
+
+    
+    + span:before {
+        color: transparent;
+    }
+    &:checked + span:before {
+        color: @iconColor;
+    }
+    &:checked + span:before {
+        background-color: @color;
+    }
+
+    &:focus + span:before {
+        outline: 1px dotted #aaa;
+    }
+
+    &:disabled + span:before {
+        background:@disabledColor;
+    }
+
+  
+}
+
+//On hover effect over buttons
+label:hover> input:not(:disabled) + span:before {
+    background: @hoverColor;
+}
+//make the radio buttons round.
+input[type="radio"]  + span:before {
+    border-radius: 100%;
+    }
