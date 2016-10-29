@@ -41,9 +41,17 @@ input[type="checkbox"].beautified:focus + i:before,
 input[type="radio"].beautified:focus + i:before {
   outline: 1px dotted #aaa;
 }
+input[type="checkbox"].beautified:disabled + i,
+input[type="radio"].beautified:disabled + i {
+  cursor: not-allowed;
+}
 input[type="checkbox"].beautified:disabled + i:before,
 input[type="radio"].beautified:disabled + i:before {
-  background: #aaa;
+  border-color: #aaa;
+}
+input[type="checkbox"].beautified:checked:disabled + i:before,
+input[type="radio"].beautified:checked:disabled + i:before {
+  background-color: #aaa;
 }
 label:hover > input.beautified:not(:disabled) + i:before {
   background: #c7ddef;

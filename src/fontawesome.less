@@ -51,12 +51,14 @@ input[type="checkbox"].beautified, input[type="radio"].beautified  {
     }
 
     &:disabled + i {
+        cursor: not-allowed;
     }
-
     &:disabled + i:before {
-        background:@disabledColor;
+        border-color:@disabledColor;
     }
-
+    &:checked:disabled + i:before {
+        background-color: @disabledColor;
+    }
   
 }
 

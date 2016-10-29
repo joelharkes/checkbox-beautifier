@@ -43,9 +43,17 @@ input[type="checkbox"]:focus + span:before,
 input[type="radio"]:focus + span:before {
   outline: 1px dotted #aaa;
 }
+input[type="checkbox"]:disabled + span,
+input[type="radio"]:disabled + span {
+  cursor: not-allowed;
+}
 input[type="checkbox"]:disabled + span:before,
 input[type="radio"]:disabled + span:before {
-  background: #aaa;
+  border-color: #aaa;
+}
+input[type="checkbox"]:checked:disabled + span:before,
+input[type="radio"]:checked:disabled + span:before {
+  background-color: #aaa;
 }
 label:hover > input:not(:disabled) + span:before {
   background: #c7ddef;

@@ -22,7 +22,6 @@ input[type="checkbox"], input[type="radio"]  {
         border-style: solid;
         border-width: 2px;
         border-color: @color;
-        //font: normal normal normal @size/1 FontAwesome;
         content: 'v';
         font-size: @size;
         line-height: 10px;
@@ -52,9 +51,14 @@ input[type="checkbox"], input[type="radio"]  {
     &:focus + span:before {
         outline: 1px dotted #aaa;
     }
-
+    &:disabled + span {
+        cursor: not-allowed;
+    }
     &:disabled + span:before {
-        background:@disabledColor;
+        border-color:@disabledColor;
+    }
+    &:checked:disabled + span:before {
+        background-color: @disabledColor;
     }
 
   
